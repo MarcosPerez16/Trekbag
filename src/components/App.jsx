@@ -58,7 +58,15 @@ function App() {
       <BackgroundHeading />
 
       <main>
-        <Header />
+        {/* instead of creating a seaparate variable to calculate the 
+          total number of items, you can just do it inline as shown below
+          so instead of doing const totalNumberOfItems = items.length;
+          we are just computing it inline
+        */}
+        <Header
+          numberOfItemsPacked={items.filter((item) => item.packed).length}
+          totalNumberOfItems={items.length}
+        />
         <ItemList
           items={items}
           handleDeleteItem={handleDeleteItem}

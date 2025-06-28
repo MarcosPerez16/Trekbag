@@ -6,8 +6,8 @@ const ItemList = ({ items, handleDeleteItem, handleToggleItem }) => {
           <Item
             item={item}
             key={item.id}
-            handleDeleteItem={handleDeleteItem}
-            handleToggleItem={handleToggleItem}
+            onDeleteItem={handleDeleteItem}
+            onToggleItem={handleToggleItem}
           />
         );
       })}
@@ -15,18 +15,18 @@ const ItemList = ({ items, handleDeleteItem, handleToggleItem }) => {
   );
 };
 
-const Item = ({ item, handleDeleteItem, handleToggleItem }) => {
+const Item = ({ item, onDeleteItem, onToggleItem }) => {
   return (
     <li className='item'>
       <label>
         <input
-          onChange={() => handleToggleItem(item.id)}
+          onChange={() => onToggleItem(item.id)}
           checked={item.packed}
           type='checkbox'
         />{' '}
         {item.name}
       </label>
-      <button onClick={() => handleDeleteItem(item.id)}>❌</button>
+      <button onClick={() => onDeleteItem(item.id)}>❌</button>
     </li>
   );
 };

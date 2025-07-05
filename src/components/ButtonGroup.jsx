@@ -1,11 +1,14 @@
 import Button from './Button';
+import useItemsContext from './lib/hooks';
 
-const ButtonGroup = ({
-  handleRemoveAllItems,
-  handleResetToInitial,
-  handleMarkAllAsComplete,
-  handleMarkAllAsIncomplete,
-}) => {
+const ButtonGroup = () => {
+  const {
+    handleMarkAllAsComplete,
+    handleMarkAllAsIncomplete,
+    handleResetToInitial,
+    handleRemoveAllItems,
+  } = useItemsContext();
+
   const secondaryButtons = [
     { text: 'Mark all as complete', onClick: handleMarkAllAsComplete },
     { text: 'Mark all as incomplete', onClick: handleMarkAllAsIncomplete },
